@@ -19,6 +19,15 @@ class Weather {
     return responseData;
   }
 
+  async getWeatherByLocation(lat, lon) {
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${this.apiKey}&units=${this.units}&lang=${this.lang}`
+    );
+    const responseData = await response.json();
+
+    return responseData;
+  }
+
   //   change weather location
   changeLocation(city, state) {
     this.city = city;
